@@ -1,14 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Host Grotesk", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+.container {
+  @apply w-screen h-auto p-3 flex flex-col gap-3;
+}
+
+
+/* Header  */
+.header {
+  @apply w-full text-sm grid;
+  padding: 0 30px 0 30px;
+  font-weight: 800;
+  grid-template-columns: 1fr auto;
+}
+
+.brand {
+  @apply flex items-center text-xl;
+  letter-spacing: 2px
+}
+
+.right-header {
+  @apply flex gap-4 items-center;
+}
+
+.search {
+  @apply flex p-2 rounded-xl gap-2 items-center;
+}
+
+.search .icons {
+  height: 20px;
+}
+
+.search-input {
+  @apply w-40 rounded-xl;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid grey;
+  text-decoration: none;
+  font-weight: 100;
+}
+
+.icons {
+  height: 25px;
+  cursor: pointer;
+}
+
+/* Breadcrumps navigation  */
+.nav {
+  color: grey;
+  padding: 0 30px 0 30px;
+}
+
+.active-nav {
+  color: black;
+}
+
+.inactive-nav:hover {
+  color: black;
+}
+
+/* Details Section  */
+.details {
+  @apply grid h-24 gap-10;
+  padding: 10px 30px 0 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Image section  */
+.image-section {
+  @apply flex flex-col gap-4;
+}
+
+.main-image {
+  @apply flex items-center justify-center;
+}
+
+.main-image img {
+  height: 50vh;
+  filter: drop-shadow(0 0 5px grey)
+}
+
+.sub-image {
+  @apply grid gap-4;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sub-image img {
+  cursor: pointer;
+}
+
+/* Text section  */
+.text-section {
+  @apply flex flex-col gap-3;
+}
+
+.product-name {
+  @apply text-4xl font-bold;
+}
+
+.price-rating {
+  @apply grid grid-cols-2
+}
+
+.price {
+  @apply flex gap-2;
+}
+
+.rating {
+  @apply flex gap-2 items-center;
+}
+
+.gray {
+  color: gray;
+}
+
+.color-section {
+  @apply flex flex-col gap-2;
+}
+
+.color {
+  @apply h-8 w-20 rounded-xl;
+  cursor: pointer;
+}
+
+.color-list {
+  @apply flex gap-2
 }
