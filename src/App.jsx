@@ -1,6 +1,53 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import color from "./data/color.json";
+import price from "./data/price.json";
 
 function App() {
+  
+  const extraImages = document.querySelectorAll('.extra-image');
+  const sizeVarients = document.querySelectorAll('.size-varients');
+  const [selectedColor, setColor] = useState(color.black);
+  const [selectedImage, setImage] = useState(selectedColor[1]);
+  const [selectSize, setSize] = useState(price.m);
+
+  function updateColor(e) {
+    setColor(color[e.target.dataset.value]);
+    setImage(color[e.target.dataset.value][1]);
+    for(let val in extraImages) {
+      if(val == 0)
+        extraImages[val].classList.add('active-image');
+      else
+        extraImages[val].classList.remove('active-image');
+    }
+  }
+  
+  function updateSize(e) {
+    setSize(price[e.target.dataset.value]);
+    for(let val in sizeVarients) {
+      if( price[e.target.dataset.value].index == val)
+        sizeVarients[val].classList.add('active-size');
+      else
+        sizeVarients[val].classList.remove('active-size');
+    }
+  }
+
+  useEffect(()=>{
+    extraImages.forEach((ei)=>{
+      ei.addEventListener('click', ()=>{
+        setImage(ei.src);
+        extraImages.forEach((image)=> {
+          if(image.src == ei.src){
+            image.classList.add('active-image');
+          }
+          else {
+            image.classList.remove('active-image');
+          }
+        })
+      })
+    })
+  })
+
+
   return(
     <div className="container">
 
@@ -42,14 +89,14 @@ function App() {
 
         <div className="image-section">
           <div className="main-image">
-            <img src="img/product/hoodie/black1.jpg" alt="" />
+            <img src={selectedImage} alt="" />
           </div>
           <div className="sub-image">
-            <img src="img/product/hoodie/black1.jpg" alt="" />
-            <img src="img/product/hoodie/black2.jpg" alt="" />
-            <img src="img/product/hoodie/black3.jpg" alt="" />
-            <img src="img/product/hoodie/black4.jpg" alt="" />
-            <img src="img/product/hoodie/black5.jpg" alt="" />
+            <img src={selectedColor[1]} alt="" className="extra-image"/>
+            <img src={selectedColor[2]} alt="" className="extra-image"/>
+            <img src={selectedColor[3]} alt="" className="extra-image"/>
+            <img src={selectedColor[4]} alt="" className="extra-image"/>
+            <img src={selectedColor[5]} alt="" className="extra-image"/>
           </div>
         </div>
 
@@ -62,12 +109,12 @@ function App() {
             <div className="price-rating">
               
               <div className="price">
-                <div className="old-price line-through font-thin gray"> $40.00 </div>
-                <div className="new-price font-extrabold text-xl"> $28.00 </div>
+                <div className="old-price line-through font-thin gray"> {selectSize.oldPrice} </div>
+                <div className="new-price font-extrabold text-2xl"> {selectSize.newPrice} </div>
               </div>
 
               <div className="rating">
-                <div className="sold-count gray"> 1238 sold </div>
+                {/* <div className="sold-count gray"> 1238 sold </div> */}
                 <div className="rating font-extrabold text-xl"> 4.5 </div>
               </div>
               
@@ -83,15 +130,33 @@ function App() {
 
           <div className="color-section ">
             <div className="color-name gray">
-              Color: <span className="text-black font-bold">Black</span>
+              Color : <span className="text-black font-bold">{selectedColor.id}</span>
             </div>
             <div className="color-list">
-              <div className="bg-black color"></div>
-              <div className="bg-yellow-300 color"></div>
-              <div className="bg-blue-500 color"></div>
-              <div className="bg-red-500  color"></div>
+              <div className="bg-black color" data-value="black" onClick={updateColor}></div>
+              <div className="bg-blue-500 color" data-value="blue" onClick={updateColor} ></div>
+              <div className="bg-orange-500  color" data-value="orange" onClick={updateColor} ></div>
+              <div className="bg-yellow-300 color" data-value="yellow" onClick={updateColor} ></div>
             </div>
           </div>
+
+          <div className="size-section">
+            <span className="gray">Size : <span className="text-black font-bold">{selectSize.id}</span></span>
+            <div className="size-list">
+              <span className="size-varients" data-value="xs" onClick={updateSize}>XS</span>
+              <span className="size-varients" data-value="s" onClick={updateSize}>S</span>
+              <span className="size-varients active-size" data-value="m" onClick={updateSize}>M</span>
+              <span className="size-varients" data-value="l" onClick={updateSize}>L</span>
+              <span className="size-varients" data-value="xl" onClick={updateSize}>XL</span>
+              <span className="size-varients" data-value="xxl" onClick={updateSize}>XXL</span>
+            </div>
+          </div>
+
+          <div className="order-section">
+            <div className="add-cart"> Add To Cart</div>
+            <div className="checkout"> Checkout Now</div>
+          </div>
+
         </div>
       </div>
 
