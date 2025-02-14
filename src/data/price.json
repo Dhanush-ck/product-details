@@ -1,0 +1,38 @@
+{
+    "xs" : {
+        "id" : "XS",
+        "index" : 0,
+        "oldPrice" : "$34.00",
+        "newPrice" : "$24.99"
+    },
+    "s" : {
+        "id" : "S",
+        "index" : 1,
+        "oldPrice" : "$36.00",
+        "newPrice" : "$26.49"
+    },
+    "m" : {
+        "id" : "M",
+        "index" : 2,
+        "oldPrice" : "$40.00",
+        "newPrice" : "$28.00"
+    },
+    "l" : {
+        "id" : "L",
+        "index" : 3,
+        "oldPrice" : "$42.00",
+        "newPrice" : "$30.00"
+    },
+    "xl" : {
+        "id" : "XL",
+        "index" : 4,
+        "oldPrice" : "$43.99",
+        "newPrice" : "$32.00"
+    },
+    "xxl" : {
+        "id" : "XXL",
+        "index" : 5,
+        "oldPrice" : "$45.00",
+        "newPrice" : "$33.00"
+    }
+}

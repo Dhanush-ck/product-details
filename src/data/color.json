@@ -1,0 +1,34 @@
+{
+    "black" : {
+        "id": "Black",
+        "1" : "img/product/hoodie/black/black1.jpg",
+        "2" : "img/product/hoodie/black/black2.jpg",
+        "3" : "img/product/hoodie/black/black3.jpg",
+        "4" : "img/product/hoodie/black/black4.jpg",
+        "5" : "img/product/hoodie/black/black5.jpg"
+    },
+    "blue" : {
+        "id": "Blue",
+        "1" : "img/product/hoodie/blue/blue1.jpg",
+        "2" : "img/product/hoodie/blue/blue2.jpg",
+        "3" : "img/product/hoodie/blue/blue3.jpg",
+        "4" : "img/product/hoodie/blue/blue4.jpg",
+        "5" : "img/product/hoodie/blue/blue5.jpg"
+    },
+    "orange" : {
+        "id": "Orange",
+        "1" : "img/product/hoodie/orange/orange1.jpg",
+        "2" : "img/product/hoodie/orange/orange2.jpg",
+        "3" : "img/product/hoodie/orange/orange3.jpg",
+        "4" : "img/product/hoodie/orange/orange4.jpg",
+        "5" : "img/product/hoodie/orange/orange5.jpg"
+    },
+    "yellow" : {
+        "id": "Yellow",
+        "1" : "img/product/hoodie/yellow/yellow1.jpg",
+        "2" : "img/product/hoodie/yellow/yellow2.jpg",
+        "3" : "img/product/hoodie/yellow/yellow3.jpg",
+        "4" : "img/product/hoodie/yellow/yellow4.jpg",
+        "5" : "img/product/hoodie/yellow/yellow5.jpg"
+    }
+}
