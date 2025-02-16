@@ -1042,10 +1042,6 @@
     @apply flex
   }
 
-  .review-filter {
-    display: none;
-  }
-
   .review-header {
     grid-template-columns: 1fr auto;
   }
@@ -1130,10 +1126,6 @@
 
   .review-main {
     @apply flex
-  }
-
-  .review-filter {
-    display: none;
   }
 
   .review-header {
