@@ -466,8 +466,8 @@ function App() {
                   <span>1</span>
                 </div>
                 <div className="flex gap-1 text-lg items-center">
-                  <input type="radio" name="filter" id="" className="h-4 w-4" value={0} onChange={handleFilter}/>
-                  <span>All</span>
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={0} onChange={handleFilter} defaultChecked/>
+                  <span>{t("viewAll")}</span>
                 </div>
               </div>
               <div className="dotted-margin"></div>
