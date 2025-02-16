@@ -12,6 +12,8 @@ function App() {
   const [selectSize, setSize] = useState(price.m);
   const [lang, setlang] = useState();
 
+  const [isView, setView]= useState(true);
+
   const {t} = useTranslation();
   const {i18n} = useTranslation();
 
@@ -433,7 +435,7 @@ function App() {
             </div>
           </div>
           <div className="review-main">
-            <div className="review-filter">
+            <div className="review-filter" style={{ display: isView ? "block" : "none" }}>
               <span className="filter text-2xl w-full flex items-center m-4 font-semibold">{t("filter")}</span>
               <div className="dotted-margin"></div>
               <div className="star-list m-4 flex flex-col gap-2">
@@ -486,7 +488,7 @@ function App() {
               <div>
                 <div className="review-header grid grid-cols-2 items-center">
                   <span className="filter text-2xl  flex items-center m-4 font-semibold">{t("review")}</span>
-                  <img src="img/icons/filter.png" alt="" className="filter-icon h-7 "/>
+                  <img src="img/icons/filter.png" alt="" className="filter-icon h-7 " onClick={()=>setView(!isView)}/>
                 </div>
                 <div className="dotted-margin "></div>
               </div>
