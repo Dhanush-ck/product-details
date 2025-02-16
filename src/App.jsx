@@ -12,8 +12,6 @@ function App() {
   const [selectSize, setSize] = useState(price.m);
   const [lang, setlang] = useState();
 
-  const [isView, setView]= useState(true);
-
   const {t} = useTranslation();
   const {i18n} = useTranslation();
 
@@ -201,6 +199,7 @@ function App() {
   }
 
   const [isVisible, setIsVisible] = useState(false);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   useEffect(()=>{
     extraImages.forEach((ei)=>{
@@ -435,7 +434,7 @@ function App() {
             </div>
           </div>
           <div className="review-main">
-            <div className="review-filter" style={{ display: isView ? "block" : "none" }}>
+            <div className="review-filter">
               <span className="filter text-2xl w-full flex items-center m-4 font-semibold">{t("filter")}</span>
               <div className="dotted-margin"></div>
               <div className="star-list m-4 flex flex-col gap-2">
@@ -484,11 +483,65 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="filer-modal" style={{ display: isFilterVisible ? "flex" : "none" }}>
+              <div className="filter-preview">
+              <span className="filter text-2xl w-full grid grid-cols-2 items-center m-4 font-semibold">
+                {t("filter")}
+                <img src="img/icons/close.png" alt="" className="flex justify-end h-4 cursor-pointer" onClick={()=>setIsFilterVisible(!isFilterVisible)}/>
+                </span>
+              <div className="dotted-margin"></div>
+              <div className="star-list m-4 flex flex-col gap-2">
+                <span className="font-semibold ">{t("rating")}</span>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={5} onChange={handleFilter}/>
+                  <img src="img/icons/star.png" alt="" className="h-6" />
+                  <span>5</span>
+                </div>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={4} onChange={handleFilter}/>
+                  <img src="img/icons/star.png" alt="" className="h-6" />
+                  <span>4</span>
+                </div>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={3} onChange={handleFilter}/>
+                  <img src="img/icons/star.png" alt="" className="h-6" />
+                  <span>3</span>
+                </div>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={2} onChange={handleFilter}/>
+                  <img src="img/icons/star.png" alt="" className="h-6" />
+                  <span>2</span>
+                </div>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={1} onChange={handleFilter}/>
+                  <img src="img/icons/star.png" alt="" className="h-6" />
+                  <span>1</span>
+                </div>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="filter" id="" className="h-4 w-4" value={0} onChange={handleFilter} defaultChecked/>
+                  <span>{t("viewAll")}</span>
+                </div>
+              </div>
+              <div className="dotted-margin"></div>
+              <span className="filter text-2xl w-full flex items-center m-4 font-semibold">{t("sort")}</span>
+              <div className="dotted-margin"></div>
+              <div className="star-list m-4 flex flex-col gap-2">
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="sort" id="" className="h-4 w-4" defaultChecked onChange={handleSort} value={1}/>
+                  <span>{t("topReview")}</span>
+                </div>
+                <div className="flex gap-1 text-lg items-center">
+                  <input type="radio" name="sort" id="" className="h-4 w-4" onClick={handleSort} value={2}/>
+                  <span>{t("mostRecent")}</span>
+                </div>
+              </div>
+              </div>
+            </div>
             <div className="review-users">
               <div>
                 <div className="review-header grid grid-cols-2 items-center">
                   <span className="filter text-2xl  flex items-center m-4 font-semibold">{t("review")}</span>
-                  <img src="img/icons/filter.png" alt="" className="filter-icon h-7 " onClick={()=>setView(!isView)}/>
+                  <img src="img/icons/filter.png" alt="" className="filter-icon h-7 " onClick={()=>setIsFilterVisible(!isFilterVisible)}/>
                 </div>
                 <div className="dotted-margin "></div>
               </div>
