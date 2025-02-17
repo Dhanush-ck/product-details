@@ -202,31 +202,20 @@ function App() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   // useEffect(()=>{
-  //   extraImages.forEach((ei)=>{
-  //     ei.addEventListener('click', ()=>{
-  //       setImage(ei.src);
-  //       extraImages.forEach((image)=> {
-  //         if(image.src == ei.src){
-  //           image.classList.add('active-image');
-  //         }
-  //         else {
-  //           image.classList.remove('active-image');
-  //         }
-  //       })
-  //     })
-  //   })
+    extraImages.forEach((ei)=>{
+      ei.addEventListener('click', ()=>{
+        setImage(ei.src);
+        extraImages.forEach((image)=> {
+          if(image.src == ei.src){
+            image.classList.add('active-image');
+          }
+          else {
+            image.classList.remove('active-image');
+          }
+        })
+      })
+    })
   // })
-  
-  function handleActive(e) {
-    for(let val in extraImages){
-      if(val == e.target.dataset.value){
-        extraImages[val].classList.add('active-image');
-      }
-      else {
-        extraImages[val].classList.remove('active-image');
-      }
-    }
-  } 
 
 
   return(
@@ -321,11 +310,11 @@ function App() {
               <img src={selectedImage} alt="" />
             </div>
             <div className="sub-image">
-              <img src={selectedColor[2]} alt="" className="extra-image" data-value="0" onClick={handleActive} style={{"--i": "2"}}/>
-              <img src={selectedColor[3]} alt="" className="extra-image" data-value="1" onClick={handleActive} style={{"--i": "3"}}/>
-              <img src={selectedColor[4]} alt="" className="extra-image" data-value="2" onClick={handleActive} style={{"--i": "4"}}/>
-              <img src={selectedColor[1]} alt="" className="extra-image" data-value="3" onClick={handleActive} style={{"--i": "1"}}/>
-              <img src={selectedColor[5]} alt="" className="extra-image" data-value="4" onClick={handleActive} style={{"--i": "5"}}/>
+              <img src={selectedColor[1]} alt="" className="extra-image" style={{"--i": "1"}}/>
+              <img src={selectedColor[2]} alt="" className="extra-image" style={{"--i": "2"}}/>
+              <img src={selectedColor[3]} alt="" className="extra-image" style={{"--i": "3"}}/>
+              <img src={selectedColor[4]} alt="" className="extra-image" style={{"--i": "4"}}/>
+              <img src={selectedColor[5]} alt="" className="extra-image" style={{"--i": "5"}}/>
             </div>
           </div>
 
